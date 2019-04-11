@@ -286,6 +286,43 @@ print("Learned parameters:  m=%.4f, b=%.4f" % tuple(sess.run([m, b])))
 
 ########
 
+########
+# Debugging with tf.Print
+
+import tensorflow as tf
+two_node = tf.constant(2)
+three_node = tf.constant(3)
+sum_node = two_node + three_node
+sess = tf.Session()
+print(sess.run([two_node, three_node]))
+print(sess.run(sum_node))
+
+########
+
+########
+
+# Alternatives to tf.Print to see intermediatery values
+
+import tensorflow as tf
+two_node = tf.constant(2)
+three_node = tf.constant(3)
+sum_node = two_node + three_node
+sess = tf.Session()
+answer, inspection = sess.run([sum_node, [two_node, three_node]])
+print(inspection)
+print(answer)
+inspection, answer = sess.run([[two_node, three_node], sum_node])
+print(inspection)
+print(answer)
+
+########
+
+
+
+
+
+
+
 
 
 
